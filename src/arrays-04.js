@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-unused-vars */
 /*
  * arrays-04.js
@@ -17,7 +18,11 @@
  * ? hint: use Math.abs() to get the absolute value of a number
  */
 function getAbsoluteSum(nums) {
-  // write your code here & return value
+  let sum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    sum += Math.abs(nums[i]);
+  }
+  return sum;
 }
 
 /**
@@ -28,7 +33,7 @@ function getAbsoluteSum(nums) {
  * ? hint: use the filter() array method - https://youtu.be/JY5HUDMudew
  */
 function removeStrings(arr) {
-  // write your code here & return value
+  return arr.filter((element) => typeof element !== 'string');
 }
 
 /**
@@ -50,7 +55,9 @@ function removeStrings(arr) {
  * ? hint 2: use the spread operator with Math.min() and Math.max()
  */
 function findMinMax(arr) {
-  // write your code here & return value
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+  return [min, max];
 }
 
 /**
@@ -74,7 +81,11 @@ function findMinMax(arr) {
  * ? https://bit.ly/39ASLc0
  */
 function getTelNo(numbers) {
-  // write your code here & return value
+  const copy = numbers.slice(); // create a shallow copy
+  const areaCode = copy.splice(0, 3).join('');
+  const firstPart = copy.splice(0, 3).join('');
+  const secondPart = copy.join('');
+  return `(${areaCode}) ${firstPart}-${secondPart}`;
 }
 
 module.exports = {
